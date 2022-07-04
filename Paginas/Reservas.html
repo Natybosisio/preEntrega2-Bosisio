@@ -9,6 +9,8 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <!--JS-->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script><!--PARA FECHA Y HORA-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
@@ -16,6 +18,8 @@
   <script defer src="../JS/function.js"></script>
   <script defer src="../JS/buscarReserva.js"></script>
   <script defer src="../JS/eventos.js"></script>
+  <script defer src="../JS/pagos.js"></script>
+  <script defer src="../JS/luxon.js"></script>
 
   <!-- Iconos -->
   <script src="https://kit.fontawesome.com/01c9b60a99.js" crossorigin="anonymous"></script>
@@ -86,17 +90,25 @@
   <section>
     <div class="container">
       <div class="col-12 row">
-        <h2 class="section-title">SISTEMA DE RESERVAS - ALQUILER DE CANCHAS</h2>
+        <h2 class="section-title mt-3 mb-4">SISTEMA DE RESERVAS - ALQUILER DE CANCHAS</h2>
+
       </div>
-      <div class="input-group flex-nowrap" >
-        <span class="input-group-text" >Ingrese su Nombre</span>
-        <input id="nombre" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="addon-wrapping">
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text campoIncompeto">Ingrese su Nombre</span>
+        <input id="nombre" type="text" class="form-control" placeholder="" aria-label="Username"
+          aria-describedby="addon-wrapping">
       </div>
-      <div class="input-group flex-nowrap" >
-        <span class="input-group-text mb-3 mt-3"  >Ingrese su DNI </span>
-        <input id="dni" type="text" class="form-control mb-3 mt-3" placeholder="" aria-label="Username" aria-describedby="addon-wrapping">
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text mb-3 mt-3 campoIncompeto">Ingrese su DNI </span>
+        <input id="dni" type="number" min="1000000" class="form-control mb-3 mt-3" placeholder="" aria-label="Username"
+          aria-describedby="addon-wrapping">
       </div>
 
+      <div class="d-flex mt-5 mb-3 justify-content-center">
+        <div class="m-2">Fecha Actual</div>
+        <div id="fecha" class="m-2"></div>
+     </div>
+     
       <div class="row col-12">
         <h6>Seleccione dia</h6>
         <select id="diasHabilitados" class="form-select">
@@ -107,56 +119,66 @@
         <h6>Seleccione hora</h6>
         <select id="horasHabilitadas" class="form-select">
         </select>
-
-        <div class="select">
-          <button id="btnElegir" type="button" class="btn btn-outline-warning">elegir</button>
-        </div>
         <table class="table">
           <thead>
             <tr>
               <th scope="col">Dia seleccionado</th>
-              <th scope="col">Hora seleccionada</th>              
+              <th scope="col">Hora seleccionada</th>
             </tr>
-         </thead>
+          </thead>
           <tbody id="resultadoUs">
-          
+
           </tbody>
         </table>
-        <button id="btnConfirmar" type="button" class="btn btn-outline-warning">confirmar</button>
-      </div>
-
-
-
-
-
-      <div class="col-12">
-        <div class="about-item">
-          <div class="pt-5">
-            <h3>Consultar Reservas</h3>
-            <input id="inputDni" class="mb-20" type="number" min="1000000" placeholder="Ingresa tu número de DNI">
-            <button id="btnConsultarDni" class="boton">Consultar</button>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">DNI</th>
-                  <th scope="col">Dia</th>
-                  <th scope="col">Hora</th>
-                  <th scope="col">Nombre</th>
-                </tr>
-              </thead>
-              <tbody id="resultadosPorId">
-
-              </tbody>
-            </table>
-
-
-
-          </div>
+        <div class="select">
+          <button id="btnConfirmar" type="button" class="btn btn-outline-warning ">confirmar</button>
         </div>
+
       </div>
-    </div>
   </section>
 
+
+     
+  <section class="container">
+      <div class="d-flex row">
+          <h3 class="m-2">Medio de pago </h3>
+          <a  href="https://www.mercadopago.com" target="_blank" class="">
+            <img src="../SRC/icons/mercadopago.png" width="60" height="60" alt="logo-mercadoPago">
+          </a> 
+        <button type="button" class="boton" id="btnAbonar">PAGAR</button>   
+        </div>
+       
+        
+      </section>
+        <br>
+        <br>
+        <br>
+       
+  
+  <div class="container">
+    <div class="about-item">
+      <div class="pt-5">
+        <h3>Consultar Reservas</h3>
+        <input id="inputDni" class="mb-20" type="number" min="1000000" placeholder="Ingrese su DNI">
+        <button id="btnConsultarDni" class="boton">Consultar</button>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">DNI</th>
+              <th scope="col">Dia</th>
+              <th scope="col">Hora</th>
+              <th scope="col">Nombre</th>
+            </tr>
+          </thead>
+          <tbody id="resultadosPorId">
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+  </div>
 
 
 

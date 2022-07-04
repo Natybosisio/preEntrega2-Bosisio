@@ -24,13 +24,14 @@ nav .logo {
   height: 15rem;
   border: solid 2px #d1c606;
   border-radius: 1rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
 }
 
 .titulo {
   display: flex;
   justify-content: center;
-  font-size: 3rem;
-  background-color: #fffbdb;
+  font-size: 2rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -52,8 +53,8 @@ nav .logo {
   margin-bottom: 2rem;
 }
 .item img {
-  width: 15rem;
-  height: 15rem;
+  width: 10rem;
+  height: 10rem;
   border: solid 2px #d1c606;
   border-radius: 1rem;
 }
@@ -145,6 +146,10 @@ about-item {
   padding: 1rem;
   display: flex;
   justify-content: center;
+}
+
+.campoIncompeto {
+  background-color: red;
 }
 
 /*# sourceMappingURL=style.css.map */
